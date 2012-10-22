@@ -1,0 +1,5 @@
+<project name="Project1" default="dist">
+	<target name="dist">
+		<echo message="hello world" />
+	</target>
+</project>
