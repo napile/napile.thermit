@@ -1,5 +1,6 @@
+#TODO download thermit and then build
 language: java
-script: ant
+script: thermit
 branches:
   only:
     - master
