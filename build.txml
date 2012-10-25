@@ -53,12 +53,12 @@
 			</javac>
 
 			<copy todir="${build.classes}/@{dir}" failonerror="false">
-				<fileset dir="@{dir}/src/main/resources">
+				<fileset dir="@{dir}/src/main/java">
 					<include name="**/*.properties" />
 				</fileset>
 			</copy>
 
-			<nzip destfile="${build.dist}/lib/@{name}-${build.version}.nzip" moduledir="@{dir}/src/main/java">
+			<nzip destfile="${build.dist}/lib/@{name}.nzip" moduledir="@{dir}/src/main/java">
 				<fileset dir="${build.classes}/@{dir}" />
 			</nzip>
 
@@ -113,6 +113,6 @@
 	</target>
 
 	<target name="dist" depends="clean, init, build.libs">
-		<zip destfile="${build}/${thermit.project.name}-${build.version}-full.zip" basedir="${build.dist}" />
+		<zip destfile="${build}/${thermit.project.name}-full.zip" basedir="${build.dist}" />
 	</target>
 </project>
