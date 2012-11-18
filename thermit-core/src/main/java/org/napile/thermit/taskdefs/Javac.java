@@ -73,6 +73,7 @@ import org.napile.thermit.util.facade.FacadeTaskHelper;
  * @since Ant 1.1
  */
 
+@Deprecated
 public class Javac extends MatchingTask
 {
 

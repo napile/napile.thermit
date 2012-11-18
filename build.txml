@@ -70,8 +70,8 @@
 
 			<copy todir="${build.dist}/lib">
 				<fileset dir="@{dir}/lib">
-					<include name="*.jar" />
-					<exclude name="*-sources.jar" />
+					<include name="*.nzip" />
+					<exclude name="*-sources.nzip" />
 				</fileset>
 			</copy>
 		</sequential>
@@ -83,7 +83,7 @@
 		<sequential>
 			<path id="classpath">
 				<fileset dir="@{dir}/lib">
-					<include name="**/*.jar" />
+					<include name="**/*.nzip" />
 				</fileset>
 			</path>
 
@@ -100,7 +100,7 @@
 					<include name="**/*.jar" />
 				</fileset>
 				<fileset dir="${build.dist}/${thermit.project.name}">
-					<include name="${thermit.project.name}-${build.version}.jar" />
+					<include name="${thermit.project.name}-${build.version}.nzip" />
 				</fileset>
 			</path>
 

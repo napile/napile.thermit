@@ -1,5 +1,9 @@
 <project name="Project1" default="dist">
 	<target name="dist">
-		<echo message="hello world" />
+		<napilec srcdir="src/" outdir="out/" />
+
+		<nzip destfile="napile.lang.nzip" moduledir="src/">
+			<fileset dir="out/" />
+		</nzip>
 	</target>
 </project>

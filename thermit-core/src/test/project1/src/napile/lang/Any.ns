@@ -1,0 +1,4 @@
+package napile.lang
+
+class Any
+{}

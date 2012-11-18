@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ThermitConfiguration">
-    <defaultAnt bundledAnt="true" />
+    <defaultAnt name="Napile Thermit version 1.0" />
     <buildFile url="file://$PROJECT_DIR$/build.txml">
       <additionalClassPath />
       <antReference projectDefault="true" />
