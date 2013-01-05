@@ -16,6 +16,7 @@
 
 package org.napile.thermit.taskdefs;
 
+import java.io.PrintStream;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -72,11 +73,17 @@ public class Napilec extends MatchingTask
 
 		try
 		{
-			Class<?> clazz = Class.forName("org.napile.compiler.Main");
+			Class<?> compilerProcessorClazz = Class.forName("org.napile.compiler.common.CompilerProcessor");
+			Method execMethod = compilerProcessorClazz.getMethod("exec", PrintStream.class, String[].class);
+			//
+			Class<?> exitCode = Class.forName("org.napile.compiler.common.ExitCode");
+			Object okCode = exitCode.getField("OK").get(null);
 
-			Method method = clazz.getMethod("main", String[].class);
+			Object compilerProcessor = compilerProcessorClazz.newInstance();
 
-			method.invoke(null, new Object[] {arguments.toArray(new String[arguments.size()])});
+			Object returnVal = execMethod.invoke(compilerProcessor, System.err, arguments.toArray(new String[arguments.size()]));
+			if(returnVal != okCode)
+				throw new BuildException("Compilation is failed. Check error messages");
 		}
 		catch(Throwable ex)
 		{
@@ -86,7 +93,7 @@ public class Napilec extends MatchingTask
 			}
 			else
 			{
-				ex.printStackTrace();
+				//ex.printStackTrace();
 				throw new BuildException("napilec: " + ex.getMessage(), ex, getLocation());
 			}
 		}
